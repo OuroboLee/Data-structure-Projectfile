@@ -140,7 +140,7 @@ double distance(double* vector1, double* vector2, int vectorSize) {
     return sqrt(result);
 }
 
-// Thank you, ChatGPT!
+// Thank you, ChatGPT, for helping me to build up the code for KDTree!!
 
 typedef struct KDTreeNode2 {
     double vector[3];
@@ -161,7 +161,7 @@ void printTreeNode(KDTreeNode2* node) {
 KDTreeNode2* createNode(double vector[], slice* origin) {
     KDTreeNode2* newNode = (KDTreeNode2*) malloc(sizeof(KDTreeNode2));
     for (int i = 0; i < 3; i++) (newNode -> vector)[i] = vector[i];
-    printArray(newNode -> vector, 3);
+    //printArray(newNode -> vector, 3);
     newNode -> origin = origin;
     newNode -> left = newNode -> right = NULL;
     return newNode;
@@ -408,6 +408,7 @@ void setSliceSize(model* target, int newSliceSize) {
 
 int demandPrediction(model* target) {
     // 최단 거리 | 가장 가까운 이웃 탐색
+    // 유클리드 거리가 0에 가까울수록 유사도 높은 것으로 상정.
     double targetPoint[3] = {0, 0, 0};
 
     KDTreeNode2* closest = NULL;
@@ -432,8 +433,7 @@ int demandPrediction(model* target) {
     
 }
 
-// 유클리드 거리가 0에 가까울수록 유사도 높은 것으로 상정.
-// 각 depth에 대응하는 slice의 rateOfChangeArray의 인덱스에 접근, 
+
 
 int main() {
     
