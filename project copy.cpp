@@ -140,6 +140,8 @@ double distance(double* vector1, double* vector2, int vectorSize) {
     return sqrt(result);
 }
 
+// Thank you, ChatGPT!
+
 typedef struct KDTreeNode2 {
     double vector[3];
     slice* origin;
